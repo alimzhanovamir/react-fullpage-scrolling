@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import cls from './dots.module.scss';
 
 export const Dots = ({slidesCount, currentSlide, setSlide, catchChildState}) => {
   const [activeButton, setActiveButton] = useState(currentSlide);
   const dots = [];
   
-  catchChildState(setActiveButton);
-  
   for (let i = 0; i < slidesCount; i++) {
     dots.push(i);
   }
+
+  useEffect( ()=> {
+    catchChildState(setActiveButton);
+  }, [])
 
   
   return (
