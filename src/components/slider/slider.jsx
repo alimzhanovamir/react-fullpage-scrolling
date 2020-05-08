@@ -6,31 +6,53 @@ import { Dots } from '../dots/dots';
 export const Slider = () => {
   const slidesCount = 3;
   const sliderInnerRef = useRef(null);
-
+  
+  let wheelScrollCount = 0;
   let currentSlide = 0;
   let childSetState;
+  let timeout;
 
   const catchChildState = setState => {
     childSetState = setState;
   }
 
+  // Переключение слайдов
   const setTransform = (slidesCount, currentSlide) => {
     sliderInnerRef.current.style.cssText = `transform: translateY(-${ 100 / slidesCount * currentSlide }%)`
   }
 
   // Колбэк события прокрутки
   const wheel = e => {
-    const y = Math.sign(e.deltaY);
+    // Инкременентируем количество прокруток
+    wheelScrollCount++;
     
-    if ( y > 0 && currentSlide + 1 < slidesCount ) {
+    const direction = Math.sign(e.deltaY);
+    
+    if ( direction > 0 && currentSlide + 1 < slidesCount && wheelScrollCount > 4) {
       currentSlide = currentSlide + 1
+      // Делаем сброс кол-ва прокруток как только произошло событие переключения
+      wheelScrollCount = 0;
     }
 
-    else if ( y < 0 && currentSlide > 0 ) {        
+    else if ( direction < 0 && currentSlide > 0 && wheelScrollCount > 4) {
       currentSlide = currentSlide - 1
+      // Делаем сброс кол-ва прокруток как только произошло событие переключения
+      wheelScrollCount = 0;
     }
-    
+
+    if ( timeout ) {
+      clearTimeout(timeout);
+    }
+
+    // Сброс количества прокруток
+    timeout = setTimeout( () => {
+      // Делаем сброс кол-ва прокруток, если вышел таймаут
+      wheelScrollCount = 0;
+    }, 500)
+
+    // Пееключить слайд
     setTransform(slidesCount, currentSlide);
+    // Изменить стейт компонента Dots, задать значение текущего слайда
     childSetState(currentSlide);
   }
 
