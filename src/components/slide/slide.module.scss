@@ -1,0 +1,21 @@
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  font-size: 100px;
+}
+
+.slide:nth-child(1) {
+  background-color: darkturquoise;
+}
+
+.slide:nth-child(2) {
+  background-color: lightcoral;
+}
+
+.slide:nth-child(3) {
+  background-color: mediumaquamarine;
+}

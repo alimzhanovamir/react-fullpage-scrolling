@@ -1,0 +1,35 @@
+.dots {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,.3);
+  border-radius: 4px 0 0 4px;
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  z-index: 10;
+}
+
+.dot {}
+
+.dot + .dot {
+  margin-top: 10px;
+}
+
+.dot__button {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: rgba(255,255,255,.3);
+  border: none;
+  border-radius: 100%;
+  padding: 0;
+  cursor: pointer;
+  // outline: none;
+  transition: background-color .5s;
+}
+
+.dot__button--active {
+  background-color: rgba(0,0,0,.7);
+}
