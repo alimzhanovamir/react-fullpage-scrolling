@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import cls from './slider.module.scss';
 import { Slide } from '../slide/slide';
 import { Dots } from '../dots/dots';
@@ -21,10 +21,13 @@ export const Slider = () => {
 
   // Переключение слайдов
   const setTransform = (slidesCount, currentSlide) => {
-    sliderInnerRef.current.style.cssText = `transform: translateY(-${ 100 / slidesCount * currentSlide }%)`
+    sliderInnerRef.current.style.cssText = `
+    -webkit-transform: translateY(-${ 100 / slidesCount * currentSlide }%);
+        -ms-transform: translateY(-${ 100 / slidesCount * currentSlide }%);
+            transform: translateY(-${ 100 / slidesCount * currentSlide }%);`
   }
 
-  // Колбэк события прокрутки
+  // begin::: Колбэк события прокрутки
   const wheel = e => {   
     // Инкременентируем количество прокруток
     wheelScrollCount++;
@@ -58,11 +61,13 @@ export const Slider = () => {
     // Изменить стейт компонента Dots, задать значение текущего слайда
     childSetState(currentSlide);
   }
+  // end::: Колбэк события прокрутки
 
-  // Колбэк события клика на точки
+  // begin::: Колбэк события клика на точки
   const setSlide = id => {
     setTransform(slidesCount, id);
   }
+  // end::: Колбэк события клика на точки
 
 
 
@@ -71,6 +76,7 @@ export const Slider = () => {
   let touchTimer;
 
   const setSlideFromTouch = (touchStart, touchEnd) => {
+    console.log(touchStart, touchEnd);
     console.log( Math.abs(touchStart - touchEnd));
     const neededSwipeCount = Math.abs(touchStart - touchEnd) > 50;
     
