@@ -71,23 +71,26 @@ export const Slider = () => {
   let touchTimer;
 
   const setSlideFromTouch = (touchStart, touchEnd) => {
-    console.log(touchStart, touchEnd);
-
-    if ( touchStart > touchEnd && currentSlide + 1 < slidesCount) {
-      currentSlide = currentSlide + 1
-      // Делаем сброс кол-ва прокруток как только произошло событие переключения
-      wheelScrollCount = 0;
+    console.log( Math.abs(touchStart - touchEnd));
+    const neededSwipeCount = Math.abs(touchStart - touchEnd) > 50;
+    
+    if ( neededSwipeCount ) {
+      if ( touchStart > touchEnd && currentSlide + 1 < slidesCount) {
+        currentSlide = currentSlide + 1
+        // Делаем сброс кол-ва прокруток как только произошло событие переключения
+        wheelScrollCount = 0;
+      }
+      else if ( touchStart < touchEnd && currentSlide > 0 ) {
+        currentSlide = currentSlide - 1
+        // Делаем сброс кол-ва прокруток как только произошло событие переключения
+        wheelScrollCount = 0;
+      }
+  
+      // Пееключить слайд
+      setTransform(slidesCount, currentSlide);
+      // Изменить стейт компонента Dots, задать значение текущего слайда
+      childSetState(currentSlide);
     }
-    else if ( touchStart < touchEnd && currentSlide > 0 ) {
-      currentSlide = currentSlide - 1
-      // Делаем сброс кол-ва прокруток как только произошло событие переключения
-      wheelScrollCount = 0;
-    }
-
-    // Пееключить слайд
-    setTransform(slidesCount, currentSlide);
-    // Изменить стейт компонента Dots, задать значение текущего слайда
-    childSetState(currentSlide);
   }
 
   const touchStartHandler = e => {
