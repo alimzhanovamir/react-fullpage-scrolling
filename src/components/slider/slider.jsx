@@ -4,24 +4,8 @@ import { Slide } from '../slide/slide';
 import { Dots } from '../dots/dots';
 
 export const Slider = () => {
-  // const [currentSlide, setCurrentSlide] = useState(0);
   const slidesCount = 3;
   const sliderInnerRef = useRef(null);
-
-  // const wheel = e => {
-  //   const y = Math.sign(e.deltaY);
-    
-  //   setCurrentSlide( currentSlide => {
-  //     if ( y > 0 && currentSlide + 1 < slidesCount ) {
-  //       return currentSlide + 1
-  //     }
-  //     else if ( y < 0 && currentSlide > 0 ) {        
-  //       return currentSlide - 1
-  //     }
-
-  //     return currentSlide
-  //   });
-  // }
 
   let currentSlide = 0;
   let childSetState;
@@ -69,11 +53,7 @@ export const Slider = () => {
       <div className={cls['slider']}>
         <div
           className={cls['slider__inner']}
-          ref={sliderInnerRef}
-          // style={{
-          //   'transform': `translateY(-${ 100 / slidesCount * currentSlide }%)`
-          // }}
-          >
+          ref={sliderInnerRef}>
           <Slide classModifier>
             <div>1</div>
           </Slide>
