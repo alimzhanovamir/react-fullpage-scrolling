@@ -8,6 +8,8 @@ export const Slider = () => {
   const sliderInnerRef = useRef(null);
   
   let wheelScrollCount = 0;
+  const scrollDelay = 300;
+  const neededWheelScrollCount = 3
   let currentSlide = 0;
   let childSetState;
   let timeout;
@@ -28,13 +30,13 @@ export const Slider = () => {
     
     const direction = Math.sign(e.deltaY);
     
-    if ( direction > 0 && currentSlide + 1 < slidesCount && wheelScrollCount > 4) {
+    if ( direction > 0 && currentSlide + 1 < slidesCount && wheelScrollCount > neededWheelScrollCount) {
       currentSlide = currentSlide + 1
       // Делаем сброс кол-ва прокруток как только произошло событие переключения
       wheelScrollCount = 0;
     }
 
-    else if ( direction < 0 && currentSlide > 0 && wheelScrollCount > 4) {
+    else if ( direction < 0 && currentSlide > 0 && wheelScrollCount > neededWheelScrollCount) {
       currentSlide = currentSlide - 1
       // Делаем сброс кол-ва прокруток как только произошло событие переключения
       wheelScrollCount = 0;
@@ -48,7 +50,7 @@ export const Slider = () => {
     timeout = setTimeout( () => {
       // Делаем сброс кол-ва прокруток, если вышел таймаут
       wheelScrollCount = 0;
-    }, 500)
+    }, scrollDelay);
 
     // Пееключить слайд
     setTransform(slidesCount, currentSlide);
