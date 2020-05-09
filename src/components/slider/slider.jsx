@@ -74,11 +74,12 @@ export const Slider = () => {
   let touchStart = 0;
   let touchEnd = 0;
   let touchTimer;
+  const swipeCountToChange = 150;
 
   const setSlideFromTouch = (touchStart, touchEnd) => {
     console.log(touchStart, touchEnd);
     console.log( Math.abs(touchStart - touchEnd));
-    const neededSwipeCount = Math.abs(touchStart - touchEnd) > 50;
+    const neededSwipeCount = Math.abs(touchStart - touchEnd) > swipeCountToChange;
     
     if ( neededSwipeCount ) {
       if ( touchStart > touchEnd && currentSlide + 1 < slidesCount) {
