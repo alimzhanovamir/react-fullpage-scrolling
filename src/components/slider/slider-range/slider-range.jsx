@@ -20,8 +20,8 @@ export const SliderRange = ({slidesCount, setSlide}) => {
       <div 
         className={cls['slider-range__tags']} 
         style={{
-          'margin-right': `-${(100 / slidesCount / 2) }%`,
-          'margin-left': `-${(100 / slidesCount / 2) }%`
+          'marginRight': `-${(100 / slidesCount / 2) }%`,
+          'marginLeft': `-${(100 / slidesCount / 2) }%`
           }}>
         {tags.map( (id, idx) => (
           <div 
