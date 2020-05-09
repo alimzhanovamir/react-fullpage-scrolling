@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-fullpage-scrolling/static/css/main.4530e7fd.chunk.css",
+    "main.css": "/react-fullpage-scrolling/static/css/main.668d7ffd.chunk.css",
     "main.js": "/react-fullpage-scrolling/static/js/main.23bc3a7e.chunk.js",
     "main.js.map": "/react-fullpage-scrolling/static/js/main.23bc3a7e.chunk.js.map",
     "runtime-main.js": "/react-fullpage-scrolling/static/js/runtime-main.51b724ad.js",
@@ -8,15 +8,15 @@
     "static/js/2.c19e788b.chunk.js": "/react-fullpage-scrolling/static/js/2.c19e788b.chunk.js",
     "static/js/2.c19e788b.chunk.js.map": "/react-fullpage-scrolling/static/js/2.c19e788b.chunk.js.map",
     "index.html": "/react-fullpage-scrolling/index.html",
-    "precache-manifest.c0d3b4183feb5ff26df8cb9aecd3cf22.js": "/react-fullpage-scrolling/precache-manifest.c0d3b4183feb5ff26df8cb9aecd3cf22.js",
+    "precache-manifest.cf7964031ddef620a69903d10b3d600d.js": "/react-fullpage-scrolling/precache-manifest.cf7964031ddef620a69903d10b3d600d.js",
     "service-worker.js": "/react-fullpage-scrolling/service-worker.js",
-    "static/css/main.4530e7fd.chunk.css.map": "/react-fullpage-scrolling/static/css/main.4530e7fd.chunk.css.map",
+    "static/css/main.668d7ffd.chunk.css.map": "/react-fullpage-scrolling/static/css/main.668d7ffd.chunk.css.map",
     "static/js/2.c19e788b.chunk.js.LICENSE.txt": "/react-fullpage-scrolling/static/js/2.c19e788b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.51b724ad.js",
     "static/js/2.c19e788b.chunk.js",
-    "static/css/main.4530e7fd.chunk.css",
+    "static/css/main.668d7ffd.chunk.css",
     "static/js/main.23bc3a7e.chunk.js"
   ]
 }
