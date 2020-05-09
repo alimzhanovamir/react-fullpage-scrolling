@@ -16,20 +16,22 @@ export const Page = () => {
     {
       title: 'Откуда он появился?',
       text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так. Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.'
+    },
+    {
+      title: 'Где его взять?',
+      text: 'Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.'
     }
-  ]
-  const slides = [
+  ];
+
+  const slidesContent = [
     <Slider items={sliderData}/>,
     'Hello',
     'World',
-  ]
-
-  // console.log(slides);
+  ];
   
   return (
     <div className={cls['page']}>
-      {console.log('render page')}
-      <Fullpageslider slides={slides}/>
+      <Fullpageslider slides={slidesContent}/>
    </div>
   );
 }
