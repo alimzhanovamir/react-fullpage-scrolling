@@ -1,18 +1,38 @@
 .slider {
-  display: flex;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
 
 .slider__stage {
-  width: 100vw;
+  display: flex;
+  height: 100%;
+  transition: transform .5s;
 }
 
 .slider__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  flex-shrink: 0;
+  padding: 50px 100px;
+}
 
+.slider__title {
+  font-size: 24px;
+}
+
+.slider__text {
+  font-size: 16px;
 }
 
 .slider__range {
-
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  width: 70%;
+  transform: translateX(-50%);
 }
