@@ -16,8 +16,8 @@ export const Dots = ({slidesCount, currentSlide, setSlide, catchChildState}) => 
   
   return (
    <ul className={cls['dots']}>
-    {dots.map( id => (
-      <li className={cls['dot']}>
+    {dots.map( (id, idx) => (
+      <li className={cls['dot']} key={idx}>
         <button
           className={`${cls['dot__button']} ${activeButton === id ? cls['dot__button--active'] : ''}`}
           onClick={() => {

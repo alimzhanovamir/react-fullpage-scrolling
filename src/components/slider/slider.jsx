@@ -21,8 +21,8 @@ export const Slider = ({items}) => {
   return (
     <div className={cls['slider']}>
       <div className={cls['slider__stage']} ref={sliderStage}>
-        {items.map( ({title, text}) => (
-          <article className={cls['slider__item']}>
+        {items.map( ({title, text}, idx) => (
+          <article className={cls['slider__item']} key={idx}>
             <h1 className={cls['slider__title']}>{title}</h1>
             <p className={cls['slider__text']}>{text}</p>
           </article>

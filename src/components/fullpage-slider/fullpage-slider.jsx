@@ -137,7 +137,7 @@ export const Fullpageslider = ({slides}) => {
         <div
           className={cls['fullpage-slider__inner']}
           ref={sliderInnerRef}>
-          {slides.map( (content, idx) => <Fullpageslide pageNumber={idx + 1}>{content}</Fullpageslide> )}
+          {slides.map( (content, idx) => <Fullpageslide pageNumber={idx + 1} key={idx}>{content}</Fullpageslide> )}
         </div>
       </div>
 

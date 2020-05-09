@@ -27,6 +27,7 @@ export const SliderRange = ({slidesCount, setSlide}) => {
           <div 
             className={cls['slider-range__tag']}
             style={{left: `${(100 / slidesCount * idx) + (100 / slidesCount / 2) }%`}}
+            key={idx}
           >
             <span className={`${cls['slider-range__tag-number']} ${ activeSlide === idx ? cls['slider-range__tag-number--active'] : ''}`}>{id}</span>
           </div>
