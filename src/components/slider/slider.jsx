@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import cls from './slider.module.scss';
+import { SliderRange } from './slider-range/slider-range';
 
-export const Slider = ({slides}) => {
+export const Slider = ({items}) => {
+  console.log(items);
+  const slidesCount = items.length;
+  const sliderStage = useRef(null);
+
+  // Переключение слайдов
+  const setTransform = (slidesCount, currentSlide) => {
+    sliderStage.current.style.cssText = `
+    -webkit-transform: translateX(-${ 100 * currentSlide }vw);
+        -ms-transform: translateX(-${ 100 * currentSlide }vw);
+            transform: translateX(-${ 100 * currentSlide }vw);`
+  }
+
+  const setSlide = id => {
+    setTransform(slidesCount, id);
+  }
+  
   return (
     <div className={cls['slider']}>
-      <div className={cls['slider__stage']}>
-        {slides.map( (title, text) => {
+      <div className={cls['slider__stage']} ref={sliderStage}>
+        {items.map( ({title, text}) => (
           <article className={cls['slider__item']}>
-            <h1>{title}</h1>
-            <p>{text}</p>
+            <h1 className={cls['slider__title']}>{title}</h1>
+            <p className={cls['slider__text']}>{text}</p>
           </article>
-        })}
+        ))}
       </div>
-      <input className={cls['slider__range']} type='range'/>
+      <div className={cls['slider__range']}>
+        <SliderRange 
+          slidesCount={slidesCount}
+          setSlide={setSlide}/>
+      </div>
     </div>
   );
 }
