@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-fullpage-scrolling/precache-manifest.e214d7588b28aa45db0b686b3e12be53.js"
+  "/react-fullpage-scrolling/precache-manifest.528365bd70f1c134d208ec07582eed7d.js"
 );
 
 self.addEventListener('message', (event) => {
