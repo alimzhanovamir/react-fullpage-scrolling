@@ -4,7 +4,6 @@ import { Fullpageslide } from './fullpage-slide/fullpage-slide';
 import { Dots } from './dots/dots';
 
 export const Fullpageslider = ({slides}) => {
-  console.log(slides);
   
   const slidesCount = slides.length;
   const sliderInnerRef = useRef(null);
@@ -17,6 +16,8 @@ export const Fullpageslider = ({slides}) => {
   let childSetState;
   let timeout;
 
+  // Подъем функции изменения состояния дочернего элемнета
+  // Что меня состояние только дочернего элемента
   const catchChildState = setState => {
     childSetState = setState;
   }
@@ -63,6 +64,7 @@ export const Fullpageslider = ({slides}) => {
     // Изменить стейт компонента Dots, задать значение текущего слайда
     childSetState(currentSlide);
   }
+
   // end::: Колбэк события прокрутки
 
   // begin::: Колбэк события клика на точки
@@ -72,15 +74,13 @@ export const Fullpageslider = ({slides}) => {
   // end::: Колбэк события клика на точки
 
 
-
+  // begin::: Обработка тач-событий
   let touchStart = 0;
   let touchEnd = 0;
   let touchTimer;
   const swipeCountToChange = 150;
 
   const setSlideFromTouch = (touchStart, touchEnd) => {
-    console.log(touchStart, touchEnd);
-    console.log( Math.abs(touchStart - touchEnd));
     const neededSwipeCount = Math.abs(touchStart - touchEnd) > swipeCountToChange;
     
     if ( neededSwipeCount ) {
@@ -119,6 +119,7 @@ export const Fullpageslider = ({slides}) => {
     }, scrollDelay);
 
   }
+  // end::: Обработка тач-событий
 
   /* Жизненный цикл "монтирован"
    * Добавляем слушатель на window
@@ -132,7 +133,6 @@ export const Fullpageslider = ({slides}) => {
 
   return (
     <>
-      {console.log('render')}
       <div className={cls['fullpage-slider']} ref={sliderRef}>
         <div
           className={cls['fullpage-slider__inner']}
