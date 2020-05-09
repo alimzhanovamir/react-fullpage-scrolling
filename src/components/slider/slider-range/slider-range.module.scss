@@ -32,6 +32,12 @@
   display: block;
   line-height: 1;
   font-size: 24px;
+  transition: transform .5s;
+  transition-timing-function: cubic-bezier(0.310, 0.440, 0.445, 1.650);
+
+  &--active {
+    transform: translateY(-10px);
+  }
 }
 
 .slider-range__input {

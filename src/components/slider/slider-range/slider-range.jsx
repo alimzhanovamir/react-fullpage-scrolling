@@ -3,13 +3,16 @@ import cls from './slider-range.module.scss';
 
 export const SliderRange = ({slidesCount, setSlide}) => {
   const [currentValue, setCurrentValue] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
   const slideRange = 100/slidesCount;
   const tags = Array.from({length: slidesCount}, (elm, idx) => idx + 1);
 
   const moveSlides = e => {
     const value = e.currentTarget.value;
+    const activeSlide = Math.ceil(value / slideRange - 1);
     setCurrentValue(value);
-    setSlide( Math.ceil(value / slideRange - 1) );
+    setSlide(activeSlide);
+    setActiveSlide(activeSlide);
   };
 
   return (
@@ -25,7 +28,7 @@ export const SliderRange = ({slidesCount, setSlide}) => {
             className={cls['slider-range__tag']}
             style={{left: `${(100 / slidesCount * idx) + (100 / slidesCount / 2) }%`}}
           >
-            <span className={cls['slider-range__tag-number']}>{id}</span>
+            <span className={`${cls['slider-range__tag-number']} ${ activeSlide === idx ? cls['slider-range__tag-number--active'] : ''}`}>{id}</span>
           </div>
         ))}
       </div>
