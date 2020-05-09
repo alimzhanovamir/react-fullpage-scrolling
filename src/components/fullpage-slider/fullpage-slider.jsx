@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import cls from './slider.module.scss';
-import { Slide } from '../slide/slide';
-import { Dots } from '../dots/dots';
+import cls from './fullpage-slider.module.scss';
+import { Slide } from './fullpage-slide/fullpage-slide';
+import { Dots } from './dots/dots';
 
 export const Slider = () => {
   const slidesCount = 3;

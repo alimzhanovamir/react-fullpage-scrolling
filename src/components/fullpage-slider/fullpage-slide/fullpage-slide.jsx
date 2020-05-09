@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './slide.module.scss';
+import cls from './fullpage-slide.module.scss';
 
 export const Slide = (props) => {
   return (

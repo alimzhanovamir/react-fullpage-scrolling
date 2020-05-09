@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.module.scss';
-import { Slider } from './components/slider/slider';
+import { Slider } from './components/fullpage-slider/fullpage-slider';
 
 function App() {
   return (
