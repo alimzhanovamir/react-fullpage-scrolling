@@ -1,11 +1,11 @@
-.slider {
+.fullpage-slider {
   width: 100vw;
   height: 100vh;
   background-color: tomato;
   overflow: hidden;
 }
 
-.slider__inner {
+.fullpage-slider__inner {
   transition: transform .6s;
   transition-timing-function: cubic-bezier(.51,.92,.24,1.15);
   will-change: transform;

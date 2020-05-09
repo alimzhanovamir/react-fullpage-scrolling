@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, Component } from 'react';
 import cls from './fullpage-slider.module.scss';
-import { Slide } from './fullpage-slide/fullpage-slide';
+import { Fullpageslide } from './fullpage-slide/fullpage-slide';
 import { Dots } from './dots/dots';
 
-export const Slider = () => {
-  const slidesCount = 3;
+export const Fullpageslider = ({slides}) => {
+  console.log(slides);
+  
+  const slidesCount = slides.length;
   const sliderInnerRef = useRef(null);
   const sliderRef = useRef(null);
   
@@ -131,19 +133,11 @@ export const Slider = () => {
   return (
     <>
       {console.log('render')}
-      <div className={cls['slider']} ref={sliderRef}>
+      <div className={cls['fullpage-slider']} ref={sliderRef}>
         <div
-          className={cls['slider__inner']}
+          className={cls['fullpage-slider__inner']}
           ref={sliderInnerRef}>
-          <Slide classModifier>
-            <div>1</div>
-          </Slide>
-          <Slide classModifier>
-            <div>2</div>
-          </Slide>
-          <Slide classModifier>
-            <div>3</div>
-          </Slide>
+          {slides.map( (content, idx) => <Fullpageslide pageNumber={idx + 1}>{content}</Fullpageslide> )}
         </div>
       </div>
 

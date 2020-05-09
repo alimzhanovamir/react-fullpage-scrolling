@@ -1,4 +1,5 @@
-.slide {
+.fullpage-slide {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,14 +9,25 @@
   font-size: 100px;
 }
 
-.slide:nth-child(1) {
+.fullpage-slide:nth-child(1) {
   background-color: darkturquoise;
 }
 
-.slide:nth-child(2) {
+.fullpage-slide:nth-child(2) {
   background-color: lightcoral;
 }
 
-.slide:nth-child(3) {
+.fullpage-slide:nth-child(3) {
   background-color: mediumaquamarine;
+}
+
+.fullpage-slide__number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0,0,0, 0.5);
+  border-radius: 0 0 0 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  text-align: center;
 }
