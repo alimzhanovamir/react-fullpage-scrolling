@@ -4,24 +4,31 @@ import cls from './slider-range.module.scss';
 export const SliderRange = ({slidesCount, setSlide}) => {
   const [currentValue, setCurrentValue] = useState(0);
   const slideRange = 100/slidesCount;
-  // const 
+  const tags = Array.from({length: slidesCount}, (elm, idx) => idx + 1);
 
   const moveSlides = e => {
-    // console.log(e.currentTarget.value);
-    setCurrentValue(e.currentTarget.value)
-    const x = Math.ceil(e.currentTarget.value / slideRange - 1);
-    console.log(x);
-    
-    setSlide(x);
+    const value = e.currentTarget.value;
+    setCurrentValue(value);
+    setSlide( Math.ceil(value / slideRange - 1) );
   };
-
-  // useEffect( () => {
-
-  // }, []);
 
   return (
     <div className={cls['slider-range']}>
-      <div className={cls['slider-range__tags']}></div>
+      <div 
+        className={cls['slider-range__tags']} 
+        style={{
+          'margin-right': `-${(100 / slidesCount / 2) }%`,
+          'margin-left': `-${(100 / slidesCount / 2) }%`
+          }}>
+        {tags.map( (id, idx) => (
+          <div 
+            className={cls['slider-range__tag']}
+            style={{left: `${(100 / slidesCount * idx) + (100 / slidesCount / 2) }%`}}
+          >
+            <span className={cls['slider-range__tag-number']}>{id}</span>
+          </div>
+        ))}
+      </div>
       <input 
         className={cls['slider-range__input']}
         onChange={moveSlides}

@@ -3,7 +3,6 @@ import cls from './slider.module.scss';
 import { SliderRange } from './slider-range/slider-range';
 
 export const Slider = ({items}) => {
-  console.log(items);
   const slidesCount = items.length;
   const sliderStage = useRef(null);
 
