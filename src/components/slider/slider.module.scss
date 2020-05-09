@@ -17,8 +17,14 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
+  max-height: 100vh;
   flex-shrink: 0;
-  padding: 50px 100px;
+  padding: 30px;
+  overflow-y: auto;
+
+  @media screen and (min-width: 768) {
+    padding: 50px 100px;
+  }
 }
 
 .slider__title {

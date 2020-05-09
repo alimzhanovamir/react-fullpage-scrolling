@@ -9,7 +9,7 @@
 
 .slider-range__tag {
   position: absolute;
-  bottom: -2px;
+  bottom: -14px;
   left: 0;
   width: 14px;
   height: 60px;
@@ -37,6 +37,7 @@
 .slider-range__input {
   display: block;
   width: 100%;
+  // min-width: 260px;
   background-color: transparent;
   border: none;
   border-radius: 5px;
