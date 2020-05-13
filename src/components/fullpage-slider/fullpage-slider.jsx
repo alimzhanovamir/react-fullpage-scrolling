@@ -128,7 +128,11 @@ export const Fullpageslider = ({slides}) => {
     window.addEventListener('wheel', wheel);
     sliderRef.current.addEventListener('touchstart', touchStartHandler);
     sliderRef.current.addEventListener('touchmove', touchMoveHandler);
-    return () => window.removeEventListener('wheel', wheel);
+    return () => {
+      window.removeEventListener('wheel', wheel);
+      sliderRef.current.removeEventListener('touchstart', touchStartHandler);
+      sliderRef.current.removeEventListener('touchmove', touchMoveHandler);
+    }
   },[]);
 
   return (
